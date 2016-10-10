@@ -9,13 +9,30 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "AppInfo.h"
-@interface ViewController ()
+
+static NSString *cellId = @"cellId";
+
+@interface ViewController ()<UITableViewDataSource>
 
 @property (nonatomic, strong) NSArray *appArray;
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
 @implementation ViewController
+
+- (void)loadView {
+    
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    
+    _tableView.dataSource = self;
+    _tableView.rowHeight = 100;
+    [_tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:cellId];
+    
+    self.view = _tableView;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,10 +62,30 @@
         
         self.appArray = arrM;
         
+        //异步请求, 需要刷新数据
+        [self.tableView reloadData];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
         NSLog(@"%@", error);
     }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    return self.appArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    
+    AppInfo *appInfo = _appArray[indexPath.row];
+    
+    cell.textLabel.text = appInfo.name;
+    
+    return cell;
+    
 }
 
 @end
