@@ -56,6 +56,7 @@
 		770271C31DAB84B0001114C6 /* UILabel+CZAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271B71DAB84B0001114C6 /* UILabel+CZAddition.m */; };
 		770271C41DAB84B0001114C6 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271B91DAB84B0001114C6 /* UILabel+Extension.m */; };
 		770271C51DAB84B0001114C6 /* UIView+WP.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271BB1DAB84B0001114C6 /* UIView+WP.m */; };
+		770271C81DAB87F5001114C6 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271C71DAB87F5001114C6 /* AppInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +163,8 @@
 		770271B91DAB84B0001114C6 /* UILabel+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Extension.m"; sourceTree = "<group>"; };
 		770271BA1DAB84B0001114C6 /* UIView+WP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WP.h"; sourceTree = "<group>"; };
 		770271BB1DAB84B0001114C6 /* UIView+WP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WP.m"; sourceTree = "<group>"; };
+		770271C61DAB87F5001114C6 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
+		770271C71DAB87F5001114C6 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 				770271261DAB8355001114C6 /* AppDelegate.m */,
 				770271281DAB8355001114C6 /* ViewController.h */,
 				770271291DAB8355001114C6 /* ViewController.m */,
+				770271C61DAB87F5001114C6 /* AppInfo.h */,
+				770271C71DAB87F5001114C6 /* AppInfo.m */,
 				7702712B1DAB8355001114C6 /* Main.storyboard */,
 				7702712E1DAB8355001114C6 /* Assets.xcassets */,
 				770271301DAB8355001114C6 /* LaunchScreen.storyboard */,
@@ -439,6 +444,7 @@
 				770271C21DAB84B0001114C6 /* UIImage+Extension.m in Sources */,
 				770271981DAB84A0001114C6 /* SDImageCache.m in Sources */,
 				770271BD1DAB84B0001114C6 /* NSArray+Log.m in Sources */,
+				770271C81DAB87F5001114C6 /* AppInfo.m in Sources */,
 				7702718C1DAB84A0001114C6 /* MASCompositeConstraint.m in Sources */,
 				7702718E1DAB84A0001114C6 /* MASConstraintMaker.m in Sources */,
 				7702719D1DAB84A0001114C6 /* SDWebImageManager.m in Sources */,
