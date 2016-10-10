@@ -20,6 +20,10 @@ static NSString *cellId = @"cellId";
 
 @property (nonatomic, strong) UITableView *tableView;
 
+//下载队列
+@property (nonatomic, strong) NSOperationQueue *downLoadQueue;
+
+
 @end
 
 @implementation ViewController
@@ -40,6 +44,8 @@ static NSString *cellId = @"cellId";
     [super viewDidLoad];
     
     [self loadData];
+    
+    _downLoadQueue = [[NSOperationQueue alloc] init];
 }
 
 - (void)loadData {
@@ -83,11 +89,28 @@ static NSString *cellId = @"cellId";
     AppCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
     AppInfo *appInfo = _appArray[indexPath.row];
+    cell.nameLabel.text = appInfo.name;
+    cell.downLabel.text = appInfo.download;
     
     NSURL *url = [NSURL URLWithString:appInfo.icon];
+ 
+    //不用SDWebImage
+    // 1 .创建操作
+    NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        UIImage *image = [UIImage imageWithData:data];
+        
+        //主线程更新
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            
+            cell.iconView.image = image;
+        }];
+    }];
     
-    [cell.iconView sd_setImageWithURL:url];
-    cell.nameLabel.text = appInfo.name;
+    // 2. 添加队列
+    [_downLoadQueue addOperation:op];
     
     return cell;
     
