@@ -6,7 +6,7 @@
 //  Copyright © 2016年 maoge. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface AppInfo : NSObject
 
@@ -15,4 +15,8 @@
 @property (nonatomic, copy) NSString *download;
 
 @property (nonatomic, copy) NSString *icon;
+
+//记录内存图片下载
+@property (nonatomic, strong) UIImage *image;
+
 @end

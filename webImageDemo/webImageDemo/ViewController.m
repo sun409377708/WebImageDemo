@@ -92,19 +92,35 @@ static NSString *cellId = @"cellId";
     cell.nameLabel.text = appInfo.name;
     cell.downLabel.text = appInfo.download;
     
+     // ************ 2 避免图片重复下载, 加载内存缓存下的图片
+    if (appInfo.image != nil) {
+        cell.iconView.image = appInfo.image;
+        return cell;
+    }
+    
+    
+    // ************ 1 网络有延时, 因为无法及时获取图像, 导致cell出现复用现象, 使用占位图片
+    UIImage *placehoder = [UIImage imageNamed:@"user_default"];
+    cell.iconView.image = placehoder;
+
+    
     NSURL *url = [NSURL URLWithString:appInfo.icon];
  
     //不用SDWebImage
     // 1 .创建操作
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
         
+        [NSThread sleepForTimeInterval:1];//模拟延时
+        
         NSData *data = [NSData dataWithContentsOfURL:url];
         
         UIImage *image = [UIImage imageWithData:data];
         
+        // ************ 2.1 模型记录下载的图片
+        appInfo.image = image;
+        
         //主线程更新
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            
             cell.iconView.image = image;
         }];
     }];
