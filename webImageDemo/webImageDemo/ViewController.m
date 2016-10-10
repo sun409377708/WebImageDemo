@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "AppInfo.h"
+#import "UIImageView+WebCache.h"
+#import "AppCell.h"
 
 static NSString *cellId = @"cellId";
 
@@ -28,7 +30,7 @@ static NSString *cellId = @"cellId";
     
     _tableView.dataSource = self;
     _tableView.rowHeight = 100;
-    [_tableView registerClass: [UITableViewCell class] forCellReuseIdentifier:cellId];
+    [_tableView registerNib:[UINib nibWithNibName:@"AppCell" bundle:nil] forCellReuseIdentifier:cellId];
     
     self.view = _tableView;
     
@@ -78,11 +80,14 @@ static NSString *cellId = @"cellId";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    AppCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     
     AppInfo *appInfo = _appArray[indexPath.row];
     
-    cell.textLabel.text = appInfo.name;
+    NSURL *url = [NSURL URLWithString:appInfo.icon];
+    
+    [cell.iconView sd_setImageWithURL:url];
+    cell.nameLabel.text = appInfo.name;
     
     return cell;
     

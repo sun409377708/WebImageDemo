@@ -57,6 +57,8 @@
 		770271C41DAB84B0001114C6 /* UILabel+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271B91DAB84B0001114C6 /* UILabel+Extension.m */; };
 		770271C51DAB84B0001114C6 /* UIView+WP.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271BB1DAB84B0001114C6 /* UIView+WP.m */; };
 		770271C81DAB87F5001114C6 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271C71DAB87F5001114C6 /* AppInfo.m */; };
+		770271CC1DAB8E75001114C6 /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271CA1DAB8E75001114C6 /* AppCell.m */; };
+		770271CD1DAB8E75001114C6 /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770271CB1DAB8E75001114C6 /* AppCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,9 @@
 		770271BB1DAB84B0001114C6 /* UIView+WP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WP.m"; sourceTree = "<group>"; };
 		770271C61DAB87F5001114C6 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
 		770271C71DAB87F5001114C6 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
+		770271C91DAB8E75001114C6 /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCell.h; sourceTree = "<group>"; };
+		770271CA1DAB8E75001114C6 /* AppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCell.m; sourceTree = "<group>"; };
+		770271CB1DAB8E75001114C6 /* AppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +214,9 @@
 				7702712E1DAB8355001114C6 /* Assets.xcassets */,
 				770271301DAB8355001114C6 /* LaunchScreen.storyboard */,
 				770271331DAB8355001114C6 /* Info.plist */,
+				770271C91DAB8E75001114C6 /* AppCell.h */,
+				770271CA1DAB8E75001114C6 /* AppCell.m */,
+				770271CB1DAB8E75001114C6 /* AppCell.xib */,
 				770271221DAB8355001114C6 /* Supporting Files */,
 			);
 			path = webImageDemo;
@@ -414,6 +422,7 @@
 				7702718B1DAB84A0001114C6 /* Info.plist in Resources */,
 				770271321DAB8355001114C6 /* LaunchScreen.storyboard in Resources */,
 				7702712F1DAB8355001114C6 /* Assets.xcassets in Resources */,
+				770271CD1DAB8E75001114C6 /* AppCell.xib in Resources */,
 				7702712D1DAB8355001114C6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +443,7 @@
 				770271BE1DAB84B0001114C6 /* NSAttributedString+CZAdditon.m in Sources */,
 				770271A41DAB84A0001114C6 /* UIImageView+WebCache.m in Sources */,
 				7702719C1DAB84A0001114C6 /* SDWebImageDownloaderOperation.m in Sources */,
+				770271CC1DAB8E75001114C6 /* AppCell.m in Sources */,
 				770271901DAB84A0001114C6 /* MASViewAttribute.m in Sources */,
 				770271A31DAB84A0001114C6 /* UIImageView+HighlightedWebCache.m in Sources */,
 				7702712A1DAB8355001114C6 /* ViewController.m in Sources */,
