@@ -19,4 +19,10 @@
     
 }
 
+- (void)loadData {
+    //https://raw.githubusercontent.com/sun409377708/WebImageDemo/master/apps.json
+    
+    
+}
+
 @end
