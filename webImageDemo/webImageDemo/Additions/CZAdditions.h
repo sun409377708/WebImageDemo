@@ -14,4 +14,5 @@
 #import "NSAttributedString+CZAdditon.h"
 #import "NSAttributedString+Extension.h"
 #import "UIImage+Extension.h"
+#import "NSString+Hash.h"
 

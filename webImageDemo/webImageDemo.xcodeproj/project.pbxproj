@@ -59,6 +59,7 @@
 		770271C81DAB87F5001114C6 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271C71DAB87F5001114C6 /* AppInfo.m */; };
 		770271CC1DAB8E75001114C6 /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271CA1DAB8E75001114C6 /* AppCell.m */; };
 		770271CD1DAB8E75001114C6 /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770271CB1DAB8E75001114C6 /* AppCell.xib */; };
+		77CBDC171DAC8C7800806DBF /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC161DAC8C7800806DBF /* NSString+Hash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +171,8 @@
 		770271C91DAB8E75001114C6 /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCell.h; sourceTree = "<group>"; };
 		770271CA1DAB8E75001114C6 /* AppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCell.m; sourceTree = "<group>"; };
 		770271CB1DAB8E75001114C6 /* AppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCell.xib; sourceTree = "<group>"; };
+		77CBDC151DAC8C7800806DBF /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
+		77CBDC161DAC8C7800806DBF /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				770271A71DAB84B0001114C6 /* CZAdditions.h */,
+				77CBDC151DAC8C7800806DBF /* NSString+Hash.h */,
+				77CBDC161DAC8C7800806DBF /* NSString+Hash.m */,
 				770271A81DAB84B0001114C6 /* NSArray+CZAddition.h */,
 				770271A91DAB84B0001114C6 /* NSArray+CZAddition.m */,
 				770271AA1DAB84B0001114C6 /* NSArray+Log.h */,
@@ -435,6 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				770271911DAB84A0001114C6 /* MASViewConstraint.m in Sources */,
+				77CBDC171DAC8C7800806DBF /* NSString+Hash.m in Sources */,
 				770271C51DAB84B0001114C6 /* UIView+WP.m in Sources */,
 				7702719E1DAB84A0001114C6 /* SDWebImagePrefetcher.m in Sources */,
 				770271BF1DAB84B0001114C6 /* NSAttributedString+Extension.m in Sources */,
@@ -629,6 +635,7 @@
 				770271381DAB8355001114C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
