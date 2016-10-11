@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "AppCell.h"
 #import "CZAdditions.h"
+#import "JQWebImageManager.h"
 
 static NSString *cellId = @"cellId";
 
@@ -26,7 +27,6 @@ static NSString *cellId = @"cellId";
 
 //内存缓存
 @property (nonatomic, strong) NSMutableDictionary *imageCache;
-
 
 //下载操作缓存
 @property (nonatomic, strong) NSMutableDictionary *operationCache;
@@ -118,6 +118,13 @@ static NSString *cellId = @"cellId";
     cell.nameLabel.text = appInfo.name;
     cell.downLabel.text = appInfo.download;
     
+    //测试图片管理器
+    [[JQWebImageManager sharedManager] downloadImageWithUrlStrng:appInfo.icon completion:^(UIImage *image) {
+        
+        cell.iconView.image = image;
+    }];
+    
+    /*
     UIImage *imageCache = _imageCache[appInfo.icon];
     
      // ************ 2 避免图片重复下载, 加载内存缓存下的图片
@@ -189,7 +196,7 @@ static NSString *cellId = @"cellId";
     
     // ************ 3 记录操作缓存
     [_operationCache setObject:op forKey:appInfo.icon];
-    
+    */
     return cell;
     
 }
