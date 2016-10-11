@@ -23,7 +23,12 @@ static NSString *cellId = @"cellId";
 //下载队列
 @property (nonatomic, strong) NSOperationQueue *downLoadQueue;
 
+//内存缓存
 @property (nonatomic, strong) NSMutableDictionary *imageCache;
+
+
+//下载操作缓存
+@property (nonatomic, strong) NSMutableDictionary *operationCache;
 
 @end
 
@@ -48,8 +53,11 @@ static NSString *cellId = @"cellId";
     
     _downLoadQueue = [[NSOperationQueue alloc] init];
     
-    //实例化可变字典
+    //实例化图片缓存可变字典
     _imageCache = [NSMutableDictionary dictionary];
+    
+    //实例化操作缓存可变字典
+    _operationCache = [NSMutableDictionary dictionary];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,20 +123,27 @@ static NSString *cellId = @"cellId";
     UIImage *placehoder = [UIImage imageNamed:@"user_default"];
     cell.iconView.image = placehoder;
 
-    
     NSURL *url = [NSURL URLWithString:appInfo.icon];
  
-    //不用SDWebImage
+    // ************ 3 判断操作缓存, 避免因为网络过慢导致重复创建操作operation
+    if (_operationCache[appInfo.icon] != nil) {
+        NSLog(@"正在玩命加载");
+        return cell;
+    }
+    
     // 1 .创建操作
     NSBlockOperation *op = [NSBlockOperation blockOperationWithBlock:^{
         
-        [NSThread sleepForTimeInterval:1];//模拟延时
+        //模拟第一张图片网络很慢
+        if (indexPath.row == 0) {
+            [NSThread sleepForTimeInterval:5];
+        }
         
         NSData *data = [NSData dataWithContentsOfURL:url];
         
         UIImage *image = [UIImage imageWithData:data];
-        
-        // ************ 3 可变字典记录下载的图片
+        NSLog(@"%@下载完毕", appInfo.name);
+        // ************ 2 可变字典记录下载的图片
         [self.imageCache setObject:image forKey:appInfo.icon];
         
         //主线程更新
@@ -139,6 +154,9 @@ static NSString *cellId = @"cellId";
     
     // 2. 添加队列
     [_downLoadQueue addOperation:op];
+    
+    // ************ 3 记录操作缓存
+    [_operationCache setObject:op forKey:appInfo.icon];
     
     return cell;
     
