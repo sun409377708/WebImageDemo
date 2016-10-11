@@ -143,7 +143,7 @@ static NSString *cellId = @"cellId";
         //沙盒中读取
         cell.iconView.image = imageCache;
         
-        //************ 4 设置内存缓存 - 第二次从沙盒取出来读到内存后, 再从内存中读取
+        // ************ 4 设置内存缓存 - 第二次从沙盒取出来读到内存后, 再从内存中读取
         [_imageCache setObject:imageCache forKey:appInfo.icon];
         
         return cell;

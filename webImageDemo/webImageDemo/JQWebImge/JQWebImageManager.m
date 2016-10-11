@@ -7,6 +7,7 @@
 //
 
 #import "JQWebImageManager.h"
+#import "CZAdditions.h"
 
 @interface JQWebImageManager ()
 //下载队列
@@ -23,23 +24,51 @@
 
 //加载图片
 - (void)downloadImageWithUrlStrng:(NSString *)urlString completion:(void (^)(UIImage *image))completion {
+    // 0. 断言
+    NSAssert(completion != nil, @"必须传入完成回调");
     
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-       
-        //异步执行
-        [NSThread sleepForTimeInterval:1];
+    UIImage *imageCache = _imageCache[urlString];
+    // 1. 内存缓存
+    if (imageCache != nil) {
+        NSLog(@"内存缓存");
         
-        UIImage *image = [UIImage imageNamed:@"user_default"];
+        completion(imageCache);
+        return;
+    }
+    
+    imageCache = [UIImage imageWithContentsOfFile:[self cachePathWithUrlString: urlString]];
+    // 2. 沙盒缓存
+    if (imageCache != nil) {
+        NSLog(@"沙盒缓存");
         
-        //主线程更新
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            NSLog(@"执行完成回调");
-            completion(image);
-        });
-    });
+        // 1 .设置内存缓存
+        [_imageCache setObject:imageCache forKey:urlString];
+        
+        completion(imageCache);
+        return;
+    }
+    
+    NSLog(@"准备下载图片");
+//
+//    
+//    // 3. 下载超时, 避免重复下载操作
+//    if (_operationCache[urlString] != nil) {
+//        NSLog(@"正在下载...");
+//    }
 }
 
+
+//MD5
+- (NSString *)cachePathWithUrlString:(NSString *)urlString {
+    
+    NSString *cacheDir = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;
+    
+    //生成md5加密字符串
+    NSString *fileName = [urlString cz_md5String];
+    
+    //返回合成的路径
+    return [cacheDir stringByAppendingPathComponent:fileName];
+}
 
 + (instancetype)sharedManager {
     
