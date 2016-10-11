@@ -60,6 +60,8 @@
 		770271CC1DAB8E75001114C6 /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 770271CA1DAB8E75001114C6 /* AppCell.m */; };
 		770271CD1DAB8E75001114C6 /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770271CB1DAB8E75001114C6 /* AppCell.xib */; };
 		77CBDC171DAC8C7800806DBF /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC161DAC8C7800806DBF /* NSString+Hash.m */; };
+		77CBDC1B1DACCDC600806DBF /* JQWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */; };
+		77CBDC1E1DACCDEC00806DBF /* JQWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +175,10 @@
 		770271CB1DAB8E75001114C6 /* AppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCell.xib; sourceTree = "<group>"; };
 		77CBDC151DAC8C7800806DBF /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
 		77CBDC161DAC8C7800806DBF /* NSString+Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
+		77CBDC191DACCDC600806DBF /* JQWebImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQWebImageManager.h; sourceTree = "<group>"; };
+		77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQWebImageManager.m; sourceTree = "<group>"; };
+		77CBDC1C1DACCDEC00806DBF /* JQWebImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQWebImageDownloadOperation.h; sourceTree = "<group>"; };
+		77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQWebImageDownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 			children = (
 				770271A61DAB84B0001114C6 /* Additions */,
 				770271391DAB84A0001114C6 /* ThirdLib */,
+				77CBDC181DACCD8600806DBF /* JQWebImge */,
 				770271251DAB8355001114C6 /* AppDelegate.h */,
 				770271261DAB8355001114C6 /* AppDelegate.m */,
 				770271281DAB8355001114C6 /* ViewController.h */,
@@ -366,6 +373,17 @@
 			path = Additions;
 			sourceTree = "<group>";
 		};
+		77CBDC181DACCD8600806DBF /* JQWebImge */ = {
+			isa = PBXGroup;
+			children = (
+				77CBDC191DACCDC600806DBF /* JQWebImageManager.h */,
+				77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */,
+				77CBDC1C1DACCDEC00806DBF /* JQWebImageDownloadOperation.h */,
+				77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */,
+			);
+			path = JQWebImge;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -470,12 +488,14 @@
 				7702718F1DAB84A0001114C6 /* MASLayoutConstraint.m in Sources */,
 				770271951DAB84A0001114C6 /* ViewController+MASAdditions.m in Sources */,
 				7702719B1DAB84A0001114C6 /* SDWebImageDownloader.m in Sources */,
+				77CBDC1E1DACCDEC00806DBF /* JQWebImageDownloadOperation.m in Sources */,
 				770271A01DAB84A0001114C6 /* UIImage+GIF.m in Sources */,
 				770271C31DAB84B0001114C6 /* UILabel+CZAddition.m in Sources */,
 				7702718D1DAB84A0001114C6 /* MASConstraint.m in Sources */,
 				770271241DAB8355001114C6 /* main.m in Sources */,
 				770271961DAB84A0001114C6 /* MKAnnotationView+WebCache.m in Sources */,
 				770271C41DAB84B0001114C6 /* UILabel+Extension.m in Sources */,
+				77CBDC1B1DACCDC600806DBF /* JQWebImageManager.m in Sources */,
 				770271871DAB84A0001114C6 /* AFSecurityPolicy.m in Sources */,
 				770271BC1DAB84B0001114C6 /* NSArray+CZAddition.m in Sources */,
 				770271921DAB84A0001114C6 /* NSArray+MASAdditions.m in Sources */,
