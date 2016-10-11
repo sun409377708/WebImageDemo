@@ -23,6 +23,7 @@ static NSString *cellId = @"cellId";
 //下载队列
 @property (nonatomic, strong) NSOperationQueue *downLoadQueue;
 
+@property (nonatomic, strong) NSMutableDictionary *imageCache;
 
 @end
 
@@ -46,6 +47,16 @@ static NSString *cellId = @"cellId";
     [self loadData];
     
     _downLoadQueue = [[NSOperationQueue alloc] init];
+    
+    //实例化可变字典
+    _imageCache = [NSMutableDictionary dictionary];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    
+    //清除缓存图像 需要用字典存储
+    [_imageCache removeAllObjects];
 }
 
 - (void)loadData {
@@ -93,8 +104,9 @@ static NSString *cellId = @"cellId";
     cell.downLabel.text = appInfo.download;
     
      // ************ 2 避免图片重复下载, 加载内存缓存下的图片
-    if (appInfo.image != nil) {
-        cell.iconView.image = appInfo.image;
+    if (_imageCache[appInfo.icon] != nil) {
+        NSLog(@"返回内存中的图片");
+        cell.iconView.image = _imageCache[appInfo.icon];
         return cell;
     }
     
@@ -116,8 +128,8 @@ static NSString *cellId = @"cellId";
         
         UIImage *image = [UIImage imageWithData:data];
         
-        // ************ 2.1 模型记录下载的图片
-        appInfo.image = image;
+        // ************ 3 可变字典记录下载的图片
+        [self.imageCache setObject:image forKey:appInfo.icon];
         
         //主线程更新
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{

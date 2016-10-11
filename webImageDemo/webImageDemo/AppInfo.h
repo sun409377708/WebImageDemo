@@ -16,7 +16,4 @@
 
 @property (nonatomic, copy) NSString *icon;
 
-//记录内存图片下载
-@property (nonatomic, strong) UIImage *image;
-
 @end
