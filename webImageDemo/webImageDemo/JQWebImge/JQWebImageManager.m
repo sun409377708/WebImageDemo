@@ -67,7 +67,7 @@
     __weak typeof(JQWebImageDownloadOperation *)weakOp = op;
     [op setCompletionBlock:^{
         
-        UIImage *image = weakOp.image;
+        UIImage *image = weakOp.downloadImage;
         
         if (image != nil) {
             [self.imageCache setObject:image forKey:urlString];

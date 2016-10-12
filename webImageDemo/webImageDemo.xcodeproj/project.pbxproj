@@ -62,6 +62,7 @@
 		77CBDC171DAC8C7800806DBF /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC161DAC8C7800806DBF /* NSString+Hash.m */; };
 		77CBDC1B1DACCDC600806DBF /* JQWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */; };
 		77CBDC1E1DACCDEC00806DBF /* JQWebImageDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */; };
+		77CBDC211DAE33F800806DBF /* UIImageView+JQWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 77CBDC201DAE33F800806DBF /* UIImageView+JQWebCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -179,6 +180,8 @@
 		77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQWebImageManager.m; sourceTree = "<group>"; };
 		77CBDC1C1DACCDEC00806DBF /* JQWebImageDownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JQWebImageDownloadOperation.h; sourceTree = "<group>"; };
 		77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JQWebImageDownloadOperation.m; sourceTree = "<group>"; };
+		77CBDC1F1DAE33F800806DBF /* UIImageView+JQWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+JQWebCache.h"; sourceTree = "<group>"; };
+		77CBDC201DAE33F800806DBF /* UIImageView+JQWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+JQWebCache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +383,8 @@
 				77CBDC1A1DACCDC600806DBF /* JQWebImageManager.m */,
 				77CBDC1C1DACCDEC00806DBF /* JQWebImageDownloadOperation.h */,
 				77CBDC1D1DACCDEC00806DBF /* JQWebImageDownloadOperation.m */,
+				77CBDC1F1DAE33F800806DBF /* UIImageView+JQWebCache.h */,
+				77CBDC201DAE33F800806DBF /* UIImageView+JQWebCache.m */,
 			);
 			path = JQWebImge;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				770271941DAB84A0001114C6 /* View+MASAdditions.m in Sources */,
 				7702718F1DAB84A0001114C6 /* MASLayoutConstraint.m in Sources */,
 				770271951DAB84A0001114C6 /* ViewController+MASAdditions.m in Sources */,
+				77CBDC211DAE33F800806DBF /* UIImageView+JQWebCache.m in Sources */,
 				7702719B1DAB84A0001114C6 /* SDWebImageDownloader.m in Sources */,
 				77CBDC1E1DACCDEC00806DBF /* JQWebImageDownloadOperation.m in Sources */,
 				770271A01DAB84A0001114C6 /* UIImage+GIF.m in Sources */,

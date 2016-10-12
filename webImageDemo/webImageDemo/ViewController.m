@@ -9,11 +9,9 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "AppInfo.h"
-#import "UIImageView+WebCache.h"
 #import "AppCell.h"
 #import "CZAdditions.h"
-#import "JQWebImageManager.h"
-
+#import "UIImageView+JQWebCache.h"
 static NSString *cellId = @"cellId";
 
 @interface ViewController ()<UITableViewDataSource>
@@ -119,13 +117,10 @@ static NSString *cellId = @"cellId";
     cell.downLabel.text = appInfo.download;
     
     //设置占位图片
-    cell.iconView.image = [UIImage imageNamed:@"user_default"];
+//    cell.iconView.image = [UIImage imageNamed:@"user_default"];
     
     //测试图片管理器
-    [[JQWebImageManager sharedManager] downloadImageWithUrlStrng:appInfo.icon completion:^(UIImage *image) {
-        
-        cell.iconView.image = image;
-    }];
+    [cell.iconView jq_setImageWithUrlString:appInfo.icon];
 //
     /*
     UIImage *imageCache = _imageCache[appInfo.icon];

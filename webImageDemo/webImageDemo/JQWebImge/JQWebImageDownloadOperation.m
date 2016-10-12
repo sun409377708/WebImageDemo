@@ -31,7 +31,8 @@
 
 //添加到队列后会自动执行
 - (void)main {
-    [NSThread sleepForTimeInterval:1];
+    
+    [NSThread sleepForTimeInterval:3];
     // 1. 创建URL
     NSURL *url = [NSURL URLWithString:_urlString];
     
@@ -41,7 +42,7 @@
     // 3. 判断data
     if (data != nil) {
         //将图片回传至调用方
-        _image = [UIImage imageWithData:data];
+        _downloadImage = [UIImage imageWithData:data];
         
         // 4. 保存沙盒
         [data writeToFile:_cachePath atomically:YES];
