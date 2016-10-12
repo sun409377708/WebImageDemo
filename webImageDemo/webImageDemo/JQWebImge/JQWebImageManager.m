@@ -85,6 +85,16 @@
     [_operationCache setObject:op forKey:urlString];
 }
 
+//取消操作
+- (void)cancelImageDownloadWithUrlString:(NSString *)urlString {
+    
+    // 从操作池取出操作
+    JQWebImageDownloadOperation *op = _operationCache[urlString];
+    
+    // 给操作发送取消消息
+    [op cancel];
+}
+
 
 //MD5
 - (NSString *)cachePathWithUrlString:(NSString *)urlString {

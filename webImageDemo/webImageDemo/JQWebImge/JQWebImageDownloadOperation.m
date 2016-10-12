@@ -32,12 +32,22 @@
 //添加到队列后会自动执行
 - (void)main {
     
-    [NSThread sleepForTimeInterval:3];
+    [NSThread sleepForTimeInterval:1];
     // 1. 创建URL
     NSURL *url = [NSURL URLWithString:_urlString];
     
+    if (self.isCancelled) {
+        NSLog(@"下载前取消");
+        return;
+    }
+    
     // 2. 创建数据
     NSData *data = [NSData dataWithContentsOfURL:url];
+    
+    if (self.isCancelled) {
+        NSLog(@"下载后取消");
+        return;
+    }
     
     // 3. 判断data
     if (data != nil) {
