@@ -64,6 +64,23 @@
     // 5. 添加队列
     [_downLoadQueue addOperation:op];
     
+    __weak typeof(JQWebImageDownloadOperation *)weakOp = op;
+    [op setCompletionBlock:^{
+        
+        UIImage *image = weakOp.image;
+        
+        if (image != nil) {
+            [self.imageCache setObject:image forKey:urlString];
+        }
+        // 下载完成后, 将对应的操作缓存清除
+        [self.operationCache removeObjectForKey:urlString];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            completion(image);
+        }];
+        
+    }];
+    
     // 6. 记录操作缓存
     [_operationCache setObject:op forKey:urlString];
 }

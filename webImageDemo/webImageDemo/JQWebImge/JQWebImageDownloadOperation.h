@@ -10,6 +10,9 @@
 
 @interface JQWebImageDownloadOperation : NSOperation
 
+@property (nonatomic, strong) UIImage *image;
+
+
 + (instancetype)downloadOperationWithURLString:(NSString *)urlString cachePath:(NSString *)cachePath;
 
 @end

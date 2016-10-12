@@ -118,6 +118,9 @@ static NSString *cellId = @"cellId";
     cell.nameLabel.text = appInfo.name;
     cell.downLabel.text = appInfo.download;
     
+    //设置占位图片
+    cell.iconView.image = [UIImage imageNamed:@"user_default"];
+    
     //测试图片管理器
     [[JQWebImageManager sharedManager] downloadImageWithUrlStrng:appInfo.icon completion:^(UIImage *image) {
         
