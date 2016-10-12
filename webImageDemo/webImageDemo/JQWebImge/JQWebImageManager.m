@@ -8,6 +8,7 @@
 
 #import "JQWebImageManager.h"
 #import "CZAdditions.h"
+#import "JQWebImageDownloadOperation.h"
 
 @interface JQWebImageManager ()
 //下载队列
@@ -36,7 +37,10 @@
         return;
     }
     
-    imageCache = [UIImage imageWithContentsOfFile:[self cachePathWithUrlString: urlString]];
+    
+    NSString *cachePath = [self cachePathWithUrlString:urlString];
+    
+    imageCache = [UIImage imageWithContentsOfFile:cachePath];
     // 2. 沙盒缓存
     if (imageCache != nil) {
         NSLog(@"沙盒缓存");
@@ -47,14 +51,21 @@
         completion(imageCache);
         return;
     }
+
+    // 3. 下载超时, 避免重复下载操作
+    if (_operationCache[urlString] != nil) {
+        NSLog(@"正在下载...");
+    }
     
     NSLog(@"准备下载图片");
-//
-//    
-//    // 3. 下载超时, 避免重复下载操作
-//    if (_operationCache[urlString] != nil) {
-//        NSLog(@"正在下载...");
-//    }
+    // 4. 创建操作
+    JQWebImageDownloadOperation *op = [JQWebImageDownloadOperation downloadOperationWithURLString:urlString cachePath:cachePath];
+    
+    // 5. 添加队列
+    [_downLoadQueue addOperation:op];
+    
+    // 6. 记录操作缓存
+    [_operationCache setObject:op forKey:urlString];
 }
 
 

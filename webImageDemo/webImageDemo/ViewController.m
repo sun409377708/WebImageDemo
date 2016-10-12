@@ -123,7 +123,7 @@ static NSString *cellId = @"cellId";
         
         cell.iconView.image = image;
     }];
-    
+//
     /*
     UIImage *imageCache = _imageCache[appInfo.icon];
     
@@ -186,7 +186,7 @@ static NSString *cellId = @"cellId";
         //主线程更新
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             
-            NSLog(@"操作数%zd - 操作缓存池%@", self.downLoadQueue.operationCount, self.operationCache);
+            NSLog(@"操作数%zd +++++ 操作缓存池%@", self.downLoadQueue.operationCount, self.operationCache);
             cell.iconView.image = image;
         }];
     }];

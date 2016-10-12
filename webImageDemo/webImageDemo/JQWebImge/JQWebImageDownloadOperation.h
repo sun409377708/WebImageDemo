@@ -6,8 +6,10 @@
 //  Copyright © 2016年 maoge. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface JQWebImageDownloadOperation : NSOperation
+
++ (instancetype)downloadOperationWithURLString:(NSString *)urlString cachePath:(NSString *)cachePath;
 
 @end
