@@ -133,8 +133,25 @@
         
         //实例化操作缓存可变字典
         _operationCache = [NSMutableDictionary dictionary];
+        
+        //注册内存警告, 清理内存
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarning) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
     }
     return self;
+}
+
+- (void)memoryWarning {
+    
+    [_downLoadQueue cancelAllOperations];
+    
+    [_imageCache removeAllObjects];
+    
+    [_operationCache removeAllObjects];
+}
+
+- (void)dealloc {
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
